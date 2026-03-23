@@ -1,6 +1,6 @@
 [project]
 name = "scruby-return-json"
-version = "0.2.6"
+version = "0.2.7"
 description = "Plugin for Scruby - In search methods, returns results in the form of dictionaries."
 readme = "README.md"
 authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
@@ -12,7 +12,6 @@ classifiers = [
     "Development Status :: 4 - Beta",
     # "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: MacOS :: MacOS X",
     "Operating System :: Microsoft :: Windows",
     "Operating System :: POSIX",
@@ -48,7 +47,7 @@ check-url = "https://pypi.org/simple"
 module-root = "src"
 
 [build-system]
-requires = ["uv_build>=0.9.24,<0.10.0"]
+requires = ["uv_build>=0.9.24,<0.11.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
