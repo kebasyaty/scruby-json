@@ -1,6 +1,6 @@
 [project]
 name = "scruby-return-json"
-version = "0.2.6"
+version = "0.2.7"
 description = "Plugin for Scruby - In search methods, returns results in the form of dictionaries."
 readme = "README.md"
 authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
