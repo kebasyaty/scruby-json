@@ -1,5 +1,12 @@
 ### CHANGELOG
 
+#### v0.4.0 2026-04-26
+
+- Goto `Scruby v0.37.0`.
+- Upgraded dependencies.
+- Updated README.md
+- Updated documentation.
+
 #### v0.3.0 2026-04-26
 
 - Renamed project to `scruby-json`.
