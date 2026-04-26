@@ -1,7 +1,7 @@
-# Scruby-Return-Json - In search methods, returns result as json strings.
+# Scruby-Json - In search methods, returns result as json strings.
 # Copyright (c) 2026 Gennady Kostyunin
 # SPDX-License-Identifier: MIT
-"""Scruby-Return-Json Plugin."""
+"""Scruby-Json Plugin."""
 
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ from scruby_plugin import ScrubyPlugin
 
 
 class ReturnJson(ScrubyPlugin):
-    """Scruby-Return-Json Plugin.
+    """Scruby-Json Plugin.
 
     In search methods, returns result as json strings.
     """

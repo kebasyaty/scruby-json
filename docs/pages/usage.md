@@ -3,7 +3,7 @@ import anyio
 from typing import Any
 from pydantic import Field
 from scruby import Scruby, ScrubyModel, ScrubySettings
-from scruby_return_json import ReturnJson
+from scruby_json import ReturnJson
 
 # Plugins connection.
 ScrubySettings.plugins = [

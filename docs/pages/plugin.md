@@ -1,1 +1,1 @@
-::: scruby_return_json.plugin
+::: scruby_json.plugin

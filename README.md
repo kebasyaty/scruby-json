@@ -1,30 +1,30 @@
 <div align="center">
   <p align="center">
-    <a href="https://github.com/kebasyaty/scruby-return-json">
+    <a href="https://github.com/kebasyaty/scruby-json">
       <img
         height="80"
         alt="Logo"
-        src="https://raw.githubusercontent.com/kebasyaty/scruby-return-json/main/assets/logo.svg">
+        src="https://raw.githubusercontent.com/kebasyaty/scruby-json/main/assets/logo.svg">
     </a>
   </p>
   <p>
-    <h1>scruby-return-json</h1>
+    <h1>scruby-json</h1>
     <h3>Plugin for Scruby - In search methods, returns result as json strings.</h3>
     <p align="center">
-      <a href="https://github.com/kebasyaty/scruby-return-json/actions/workflows/test.yml" alt="Build Status"><img src="https://github.com/kebasyaty/scruby-return-json/actions/workflows/test.yml/badge.svg" alt="Build Status"></a>
-      <a href="https://kebasyaty.github.io/scruby-return-json/" alt="Docs"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
-      <a href="https://pypi.python.org/pypi/scruby-return-json/" alt="PyPI pyversions"><img src="https://img.shields.io/pypi/pyversions/scruby-return-json.svg" alt="PyPI pyversions"></a>
-      <a href="https://pypi.python.org/pypi/scruby-return-json/" alt="PyPI status"><img src="https://img.shields.io/pypi/status/scruby-return-json.svg" alt="PyPI status"></a>
-      <a href="https://pypi.python.org/pypi/scruby-return-json/" alt="PyPI version fury.io"><img src="https://badge.fury.io/py/scruby-return-json.svg" alt="PyPI version fury.io"></a>
+      <a href="https://github.com/kebasyaty/scruby-json/actions/workflows/test.yml" alt="Build Status"><img src="https://github.com/kebasyaty/scruby-json/actions/workflows/test.yml/badge.svg" alt="Build Status"></a>
+      <a href="https://kebasyaty.github.io/scruby-json/" alt="Docs"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
+      <a href="https://pypi.python.org/pypi/scruby-json/" alt="PyPI pyversions"><img src="https://img.shields.io/pypi/pyversions/scruby-json.svg" alt="PyPI pyversions"></a>
+      <a href="https://pypi.python.org/pypi/scruby-json/" alt="PyPI status"><img src="https://img.shields.io/pypi/status/scruby-json.svg" alt="PyPI status"></a>
+      <a href="https://pypi.python.org/pypi/scruby-json/" alt="PyPI version fury.io"><img src="https://badge.fury.io/py/scruby-json.svg" alt="PyPI version fury.io"></a>
       <br>
       <a href="https://pyrefly.org/" alt="Types: Pyrefly"><img src="https://img.shields.io/badge/types-Pyrefly-FFB74D.svg" alt="Types: Pyrefly"></a>
       <a href="https://docs.astral.sh/ruff/" alt="Code style: Ruff"><img src="https://img.shields.io/badge/code%20style-Ruff-FDD835.svg" alt="Code style: Ruff"></a>
-      <a href="https://pypi.org/project/scruby-return-json"><img src="https://img.shields.io/pypi/format/scruby-return-json" alt="Format"></a>
-      <a href="https://pepy.tech/projects/scruby-return-json"><img src="https://static.pepy.tech/badge/scruby-return-json" alt="PyPI Downloads"></a>
-      <a href="https://github.com/kebasyaty/scruby-return-json/blob/main/LICENSE" alt="GitHub license"><img src="https://img.shields.io/github/license/kebasyaty/scruby-return-json" alt="GitHub license"></a>
+      <a href="https://pypi.org/project/scruby-json"><img src="https://img.shields.io/pypi/format/scruby-json" alt="Format"></a>
+      <a href="https://pepy.tech/projects/scruby-json"><img src="https://static.pepy.tech/badge/scruby-json" alt="PyPI Downloads"></a>
+      <a href="https://github.com/kebasyaty/scruby-json/blob/main/LICENSE" alt="GitHub license"><img src="https://img.shields.io/github/license/kebasyaty/scruby-json" alt="GitHub license"></a>
     </p>
     <p align="center">
-      scruby-return-json is a plugin for the <a href="https://pypi.org/project/scruby/" alt="Scruby">Scruby</a> project.
+      scruby-json is a plugin for the <a href="https://pypi.org/project/scruby/" alt="Scruby">Scruby</a> project.
     </p>
   </p>
 </div>
@@ -33,26 +33,26 @@
 
 <br>
 
-[![Documentation](https://raw.githubusercontent.com/kebasyaty/scruby-return-json/v0/assets/links/documentation.svg "Documentation")](https://kebasyaty.github.io/scruby-return-json/ "Documentation")
+[![Documentation](https://raw.githubusercontent.com/kebasyaty/scruby-json/v0/assets/links/documentation.svg "Documentation")](https://kebasyaty.github.io/scruby-json/ "Documentation")
 
-[![Requirements](https://raw.githubusercontent.com/kebasyaty/scruby-return-json/v0/assets/links/requirements.svg "Requirements")](https://github.com/kebasyaty/scruby-return-json/blob/v0/REQUIREMENTS.md "Requirements")
+[![Requirements](https://raw.githubusercontent.com/kebasyaty/scruby-json/v0/assets/links/requirements.svg "Requirements")](https://github.com/kebasyaty/scruby-json/blob/v0/REQUIREMENTS.md "Requirements")
 
 ## Installation
 
 ```shell
-uv add scruby-return-json
+uv add scruby-json
 ```
 
 ## Usage
 
-[![Examples](https://raw.githubusercontent.com/kebasyaty/scruby-return-json/v0/assets/links/examples.svg "Examples")](https://kebasyaty.github.io/scruby-return-json/latest/pages/usage/ "Examples")
+[![Examples](https://raw.githubusercontent.com/kebasyaty/scruby-json/v0/assets/links/examples.svg "Examples")](https://kebasyaty.github.io/scruby-json/latest/pages/usage/ "Examples")
 
 ```python
 import anyio
 from typing import Any
 from pydantic import Field
 from scruby import Scruby, ScrubyModel, ScrubySettings
-from scruby_return_json import ReturnJson
+from scruby_json import ReturnJson
 
 # Plugins connection.
 ScrubySettings.plugins = [
@@ -120,6 +120,6 @@ if __name__ == "__main__":
 
 <br>
 
-[![Changelog](https://raw.githubusercontent.com/kebasyaty/scruby-return-json/v0/assets/links/changelog.svg "Changelog")](https://github.com/kebasyaty/scruby-return-json/blob/v0/CHANGELOG.md "Changelog")
+[![Changelog](https://raw.githubusercontent.com/kebasyaty/scruby-json/v0/assets/links/changelog.svg "Changelog")](https://github.com/kebasyaty/scruby-json/blob/v0/CHANGELOG.md "Changelog")
 
-[![GPL-3.0](https://raw.githubusercontent.com/kebasyaty/scruby-return-json/v0/assets/links/mit.svg "MIT")](https://github.com/kebasyaty/scruby-return-json/blob/main/LICENSE "MIT")
+[![GPL-3.0](https://raw.githubusercontent.com/kebasyaty/scruby-json/v0/assets/links/mit.svg "MIT")](https://github.com/kebasyaty/scruby-json/blob/main/LICENSE "MIT")

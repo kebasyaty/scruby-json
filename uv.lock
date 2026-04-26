@@ -948,7 +948,7 @@ wheels = [
 ]
 
 [[package]]
-name = "scruby-return-json"
+name = "scruby-json"
 version = "0.2.7"
 source = { editable = "." }
 dependencies = [

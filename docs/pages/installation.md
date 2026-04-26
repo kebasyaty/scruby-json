@@ -1,3 +1,3 @@
 ```shell
-uv add scruby-return-json
+uv add scruby-json
 ```
