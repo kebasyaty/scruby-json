@@ -1,6 +1,6 @@
 [project]
 name = "scruby-json"
-version = "0.4.0"
+version = "0.4.1"
 description = "Plugin for Scruby - In search methods, returns results in the form of dictionaries."
 readme = "README.md"
 requires-python = ">=3.12,<4.0"
@@ -9,8 +9,7 @@ license-files = ["LICENSE"]
 authors = [{ name = "kebasyaty", email = "kebasyaty@gmail.com" }]
 keywords = ["database", "json", "plugin", "scruby"]
 classifiers = [
-  "Development Status :: 4 - Beta",
-  # "Development Status :: 5 - Production/Stable",
+  "Development Status :: 5 - Production/Stable",
   "Intended Audience :: Developers",
   "Operating System :: MacOS :: MacOS X",
   "Operating System :: Microsoft :: Windows",
