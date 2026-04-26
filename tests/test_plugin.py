@@ -5,6 +5,7 @@ from __future__ import annotations
 import pytest
 from pydantic import Field
 from scruby import Scruby, ScrubyModel, ScrubySettings
+
 from scruby_json import ReturnJson
 
 pytestmark = pytest.mark.asyncio(loop_scope="module")
