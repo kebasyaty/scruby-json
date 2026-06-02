@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://kebasyaty.github.io/scruby-return-dict/0.5/</loc>
+         <loc>https://kebasyaty.github.io/scruby-json/0.5/</loc>
          <lastmod>2026-06-02</lastmod>
     </url>
     <url>
-         <loc>https://kebasyaty.github.io/scruby-return-dict/0.5/pages/installation/</loc>
+         <loc>https://kebasyaty.github.io/scruby-json/0.5/pages/installation/</loc>
          <lastmod>2026-06-02</lastmod>
     </url>
     <url>
-         <loc>https://kebasyaty.github.io/scruby-return-dict/0.5/pages/plugin/</loc>
+         <loc>https://kebasyaty.github.io/scruby-json/0.5/pages/plugin/</loc>
          <lastmod>2026-06-02</lastmod>
     </url>
     <url>
-         <loc>https://kebasyaty.github.io/scruby-return-dict/0.5/pages/usage/</loc>
+         <loc>https://kebasyaty.github.io/scruby-json/0.5/pages/usage/</loc>
          <lastmod>2026-06-02</lastmod>
     </url>
 </urlset>
