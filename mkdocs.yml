@@ -1,9 +1,9 @@
-site_name: Scruby-Return-Json Docs
+site_name: Scruby-Json Docs
 site_description: "Plugin for Scruby - In search methods, returns result as json strings."
 site_url: https://kebasyaty.github.io/scruby-json/
 site_author: kebasyaty
 copyright: Copyright &copy; 2026 Maintained by <a href="https://github.com/kebasyaty">kebasyaty</a>
-repo_name: kebasyaty/scruby-return-dict
+repo_name: kebasyaty/scruby-json
 repo_url: https://github.com/kebasyaty/scruby-json
 
 theme:
