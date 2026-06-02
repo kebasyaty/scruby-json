@@ -13,7 +13,6 @@ ScrubyConfig.plugins = [
 
 class Car(ScrubyModel):
     """Car model."""
-
     brand: str = Field(strict=True, frozen=True)
     model: str = Field(strict=True, frozen=True)
     year: int = Field(strict=True, frozen=True)
@@ -43,7 +42,7 @@ async def main() -> None:
         await car_coll.add_doc(car)
 
     # Find one car
-    car_json: str | None = await car_coll.plugins.returnJson.find_one(c
+    car_json: str | None = await car_coll.plugins.returnJson.find_one(
         filter_fn=lambda doc: doc.brand == "Mazda" and doc.model == "EZ-6 9",
     )
     if car_json is not None:
