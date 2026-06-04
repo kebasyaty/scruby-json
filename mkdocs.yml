@@ -30,11 +30,11 @@ theme:
     - toc.follow
   palette:
     scheme: slate
-    primary: yellow
-    accent: yellow
+    primary: light green
+    accent: light green
 
 extra_css:
-  - stylesheets/themes/github_yellow.css
+  - stylesheets/themes/github_light_green.css
   - stylesheets/extra.css
 
 plugins:
