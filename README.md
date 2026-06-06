@@ -8,7 +8,7 @@
     </a>
   </p>
   <p>
-    <h1>scruby-json</h1>
+    <h1>Scruby-Json</h1>
     <h3>Plugin for Scruby - In search methods, returns result as json strings.</h3>
     <p align="center">
       <a href="https://github.com/kebasyaty/scruby-json/actions/workflows/test.yml" alt="Build Status"><img src="https://github.com/kebasyaty/scruby-json/actions/workflows/test.yml/badge.svg" alt="Build Status"></a>
@@ -24,7 +24,7 @@
       <a href="https://github.com/kebasyaty/scruby-json/blob/main/LICENSE" alt="GitHub license"><img src="https://img.shields.io/github/license/kebasyaty/scruby-json" alt="GitHub license"></a>
     </p>
     <p align="center">
-      scruby-json is a plugin for the <a href="https://pypi.org/project/scruby/" alt="Scruby">Scruby</a> project.
+      Scruby-Json is a plugin for the <a href="https://pypi.org/project/scruby/" alt="Scruby">Scruby</a> project.
     </p>
   </p>
 </div>
