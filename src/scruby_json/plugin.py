@@ -132,7 +132,7 @@ class ReturnJson(ScrubyPlugin):
         filter_fn: Callable = lambda _: True,
         limit_docs: int = 100,
         page_number: int = 1,
-        sort_fn: Callable = lambda doc: doc.created_at,
+        sort_fn: Callable | None = lambda doc: doc.created_at,
         sort_reverse: bool = True,
     ) -> list[str] | None:
         """Asynchronous method for find many documents matching the filter.
@@ -144,9 +144,13 @@ class ReturnJson(ScrubyPlugin):
         Args:
             filter_fn (Callable): A function that execute the conditions of filtering.
                                   By default it searches for all documents.
-            limit_docs (int): Limiting the number of documents. By default = 100.
+            limit_docs (int): Limiting the number of documents. Default = 100.
             page_number (int): For pagination. By default = 1.
                                Number of documents per page = limit_docs.
+            sort_fn (Callable | None): Sort the list of documents.
+                                       By default, documents are sorted by creation date.
+            sort_reverse: (bool): Sorting direction.
+                                  By default, sort descending (newest to oldest).
 
         Returns:
             List of documents as json strings or None.
@@ -205,7 +209,8 @@ class ReturnJson(ScrubyPlugin):
                 if stop_outer_loop:
                     break
         # Sorting
-        result.sort(key=sort_fn, reverse=sort_reverse)
+        if sort_fn is not None:
+            result.sort(key=sort_fn, reverse=sort_reverse)
         # Convert to JSON
         result = [item.model_dump_json() for item in result]
         # Return a document list
