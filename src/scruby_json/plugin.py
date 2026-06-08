@@ -86,7 +86,7 @@ class ReturnJson(ScrubyPlugin):
             filter_fn (Callable): A function that execute the conditions of filtering.
 
         Returns:
-            One document as json string or None.
+            One document in json format or None.
         """
         # Get Scruby instance
         scruby_self = self.scruby_self()
@@ -134,7 +134,7 @@ class ReturnJson(ScrubyPlugin):
         page_number: int = 1,
         sort_fn: Callable | None = lambda doc: doc.created_at,
         sort_reverse: bool = True,
-    ) -> list[str] | None:
+    ) -> str | None:
         """Asynchronous method for find many documents matching the filter.
 
         Attention:
@@ -153,7 +153,7 @@ class ReturnJson(ScrubyPlugin):
                                   By default, sort descending (newest to oldest).
 
         Returns:
-            List of documents as json strings or None.
+            List of documents in json format or None
         """
         if __debug__:
             if limit_docs <= 0:
@@ -212,6 +212,6 @@ class ReturnJson(ScrubyPlugin):
         if sort_fn is not None:
             result.sort(key=sort_fn, reverse=sort_reverse)
         # Convert to JSON
-        result = [item.model_dump_json() for item in result]
-        # Return a document list
-        return result or None
+        result_json: str = f"[{','.join([item.model_dump_json() for item in result])}]"
+        # Return a list of documents in json format or None
+        return result_json if result else None
