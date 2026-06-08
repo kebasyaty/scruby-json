@@ -114,7 +114,7 @@ class ReturnJson(ScrubyPlugin):
             ]
             for future in as_completed(futures):
                 docs = await future.result()
-                if docs is not None:
+                if bool(docs):
                     # Get first document
                     doc = docs[0]
                     # Cancel all pending tasks in the queue instantly
@@ -174,7 +174,7 @@ class ReturnJson(ScrubyPlugin):
         stop_outer_loop: bool = False
         counter: int = 0
         number_docs_skippe: int = limit_docs * (page_number - 1) if page_number > 1 else 0
-        result: list[str] = []
+        result: list[Any] = []
         result_json: str | None = None
         # Run quantum loop
         with ThreadPoolExecutor(scruby_self._max_workers) as executor:
@@ -192,7 +192,7 @@ class ReturnJson(ScrubyPlugin):
             ]
             for future in as_completed(futures):
                 docs = await future.result()
-                if docs is not None:
+                if bool(docs):
                     for doc in docs:
                         if number_docs_skippe == 0:
                             if counter >= limit_docs:
