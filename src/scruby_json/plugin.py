@@ -175,6 +175,7 @@ class ReturnJson(ScrubyPlugin):
         counter: int = 0
         number_docs_skippe: int = limit_docs * (page_number - 1) if page_number > 1 else 0
         result: list[str] = []
+        result_json: str | None = None
         # Run quantum loop
         with ThreadPoolExecutor(scruby_self._max_workers) as executor:
             futures: list[Future] = [
@@ -212,6 +213,7 @@ class ReturnJson(ScrubyPlugin):
         if sort_fn is not None:
             result.sort(key=sort_fn, reverse=sort_reverse)
         # Convert to JSON
-        result_json: str = f"[{','.join([item.model_dump_json() for item in result])}]"
+        if len(result) > 0:
+            result_json = f"[{','.join([item.model_dump_json() for item in result])}]"
         # Return a list of documents in json format or None
-        return result_json if result else None
+        return result_json
