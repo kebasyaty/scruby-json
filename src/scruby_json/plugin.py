@@ -124,7 +124,7 @@ class ReturnJson(ScrubyPlugin):
                     # Stop loop
                     break
         # Return document
-        return doc.model_dump_json()
+        return doc.model_dump_json() if doc is not None else None
 
     @final
     async def find_many(

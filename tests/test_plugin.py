@@ -57,7 +57,6 @@ class TestPositive:
         car_json: str | None = await car_coll.plugins.returnJson.find_one(
             filter_fn=lambda doc: doc.brand == "Mazda",
         )
-
         assert car_json is not None
         assert isinstance(car_json, str)
         assert Car.model_validate_json(car_json).brand == "Mazda"
@@ -65,10 +64,15 @@ class TestPositive:
         car_2_json: str | None = await car_coll.plugins.returnJson.find_one(
             filter_fn=lambda doc: doc.brand == "Mazda" and doc.model == "EZ-6 9",
         )
-
         assert car_2_json is not None
         assert isinstance(car_2_json, str)
         assert Car.model_validate_json(car_2_json).model == "EZ-6 9"
+
+        # Car is None
+        car_3_json: str | None = await car_coll.plugins.returnJson.find_one(
+            filter_fn=lambda doc: doc.brand == "???",
+        )
+        assert car_3_json is None
         #
         # Delete DB.
         Scruby.napalm()
@@ -90,9 +94,8 @@ class TestPositive:
                 description="Electric cars are the future of the global automotive industry.",
             )
             await car_coll.add_doc(car)
-        # Find a car
+        # Find a cars
         cars_json: str | None = await car_coll.plugins.returnJson.find_many()
-
         assert cars_json is not None
         assert isinstance(cars_json, str)
         assert len(orjson.loads(cars_json)) == 9
@@ -101,7 +104,6 @@ class TestPositive:
         cars_2_json: str | None = await car_coll.plugins.returnJson.find_many(
             filter_fn=lambda doc: doc.brand == "Mazda",
         )
-
         assert cars_2_json is not None
         assert isinstance(cars_2_json, str)
         assert len(orjson.loads(cars_2_json)) == 9
@@ -110,10 +112,15 @@ class TestPositive:
         cars_3_json: str | None = await car_coll.plugins.returnJson.find_many(
             filter_fn=lambda doc: doc.brand == "Mazda" and doc.model == "EZ-6 9",
         )
-
         assert cars_3_json is not None
         assert isinstance(cars_3_json, str)
         assert Car.model_validate(orjson.loads(cars_3_json)[0]).model == "EZ-6 9"
+
+        # Cars is None
+        cars_4_json: str | None = await car_coll.plugins.returnJson.find_many(
+            filter_fn=lambda doc: doc.brand == "???",
+        )
+        assert cars_4_json is None
         #
         # Delete DB.
         Scruby.napalm()
