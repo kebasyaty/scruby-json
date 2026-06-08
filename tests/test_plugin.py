@@ -90,28 +90,28 @@ class TestPositive:
             )
             await car_coll.add_doc(car)
         # Find a car
-        car_list: list[str] | None = await car_coll.plugins.returnJson.find_many()
+        car_list: str | None = await car_coll.plugins.returnJson.find_many()
 
         assert car_list is not None
-        assert isinstance(car_list, list)
+        assert isinstance(car_list, str)
         assert len(car_list) == 9
         assert Car.model_validate_json(car_list[0]).brand == "Mazda"
 
-        car_2_list: list[str] | None = await car_coll.plugins.returnJson.find_many(
+        car_2_list: str | None = await car_coll.plugins.returnJson.find_many(
             filter_fn=lambda doc: doc.brand == "Mazda",
         )
 
         assert car_2_list is not None
-        assert isinstance(car_2_list, list)
+        assert isinstance(car_2_list, str)
         assert len(car_2_list) == 9
         assert Car.model_validate_json(car_2_list[0]).brand == "Mazda"
 
-        car_3_list: list[str] | None = await car_coll.plugins.returnJson.find_many(
+        car_3_list: str | None = await car_coll.plugins.returnJson.find_many(
             filter_fn=lambda doc: doc.brand == "Mazda" and doc.model == "EZ-6 9",
         )
 
         assert car_3_list is not None
-        assert isinstance(car_3_list, list)
+        assert isinstance(car_3_list, str)
         assert Car.model_validate_json(car_3_list[0]).model == "EZ-6 9"
         #
         # Delete DB.
