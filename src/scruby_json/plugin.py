@@ -114,7 +114,7 @@ class ReturnJson(ScrubyPlugin):
             ]
             for future in as_completed(futures):
                 docs = await future.result()
-                if bool(docs):
+                if docs is not None:
                     # Get first document
                     doc = docs[0]
                     # Cancel all pending tasks in the queue instantly
@@ -192,7 +192,7 @@ class ReturnJson(ScrubyPlugin):
             ]
             for future in as_completed(futures):
                 docs = await future.result()
-                if bool(docs):
+                if docs is not None:
                     for doc in docs:
                         if number_docs_skippe == 0:
                             if counter >= limit_docs:
