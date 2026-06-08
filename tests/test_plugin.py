@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import orjson
 import pytest
 from pydantic import Field
 from scruby import Scruby, ScrubyConfig, ScrubyModel
@@ -90,29 +91,29 @@ class TestPositive:
             )
             await car_coll.add_doc(car)
         # Find a car
-        car_list: str | None = await car_coll.plugins.returnJson.find_many()
+        cars_json: str | None = await car_coll.plugins.returnJson.find_many()
 
-        assert car_list is not None
-        assert isinstance(car_list, str)
-        assert len(car_list) == 9
-        assert Car.model_validate_json(car_list[0]).brand == "Mazda"
+        assert cars_json is not None
+        assert isinstance(cars_json, str)
+        assert len(orjson.loads(cars_json)) == 9
+        assert Car.model_validate(orjson.loads(cars_json)[0]).brand == "Mazda"
 
-        car_2_list: str | None = await car_coll.plugins.returnJson.find_many(
+        cars_2_json: str | None = await car_coll.plugins.returnJson.find_many(
             filter_fn=lambda doc: doc.brand == "Mazda",
         )
 
-        assert car_2_list is not None
-        assert isinstance(car_2_list, str)
-        assert len(car_2_list) == 9
-        assert Car.model_validate_json(car_2_list[0]).brand == "Mazda"
+        assert cars_2_json is not None
+        assert isinstance(cars_2_json, str)
+        assert len(orjson.loads(cars_2_json)) == 9
+        assert Car.model_validate(orjson.loads(cars_2_json)[0]).brand == "Mazda"
 
-        car_3_list: str | None = await car_coll.plugins.returnJson.find_many(
+        cars_3_json: str | None = await car_coll.plugins.returnJson.find_many(
             filter_fn=lambda doc: doc.brand == "Mazda" and doc.model == "EZ-6 9",
         )
 
-        assert car_3_list is not None
-        assert isinstance(car_3_list, str)
-        assert Car.model_validate_json(car_3_list[0]).model == "EZ-6 9"
+        assert cars_3_json is not None
+        assert isinstance(cars_3_json, str)
+        assert Car.model_validate(orjson.loads(cars_3_json)[0]).model == "EZ-6 9"
         #
         # Delete DB.
         Scruby.napalm()
