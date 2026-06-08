@@ -1,6 +1,6 @@
 [project]
 name = "scruby-json"
-version = "0.6.1"
+version = "0.6.4"
 description = "Plugin for Scruby - In search methods, returns results in the form of dictionaries."
 readme = "README.md"
 requires-python = ">=3.12,<4.0"

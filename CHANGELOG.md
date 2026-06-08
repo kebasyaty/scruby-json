@@ -1,5 +1,11 @@
 ### CHANGELOG
 
+#### v0.6.4 2026-06-08
+
+- Fixed major bug for `find_many`.
+- Updated tests.
+- Updated documentation.
+
 #### v0.4.0 2026-04-26
 
 - Goto `Scruby v0.37.0`.

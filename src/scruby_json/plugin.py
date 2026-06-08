@@ -86,7 +86,7 @@ class ReturnJson(ScrubyPlugin):
             filter_fn (Callable): A function that execute the conditions of filtering.
 
         Returns:
-            One document as json string or None.
+            One document in json format or None.
         """
         # Get Scruby instance
         scruby_self = self.scruby_self()
@@ -114,7 +114,7 @@ class ReturnJson(ScrubyPlugin):
             ]
             for future in as_completed(futures):
                 docs = await future.result()
-                if docs is not None:
+                if bool(docs):
                     # Get first document
                     doc = docs[0]
                     # Cancel all pending tasks in the queue instantly
@@ -124,7 +124,7 @@ class ReturnJson(ScrubyPlugin):
                     # Stop loop
                     break
         # Return document
-        return doc.model_dump_json()
+        return doc.model_dump_json() if doc is not None else None
 
     @final
     async def find_many(
@@ -134,7 +134,7 @@ class ReturnJson(ScrubyPlugin):
         page_number: int = 1,
         sort_fn: Callable | None = lambda doc: doc.created_at,
         sort_reverse: bool = True,
-    ) -> list[str] | None:
+    ) -> str | None:
         """Asynchronous method for find many documents matching the filter.
 
         Attention:
@@ -153,7 +153,7 @@ class ReturnJson(ScrubyPlugin):
                                   By default, sort descending (newest to oldest).
 
         Returns:
-            List of documents as json strings or None.
+            List of documents in json format or None
         """
         if __debug__:
             if limit_docs <= 0:
@@ -174,7 +174,8 @@ class ReturnJson(ScrubyPlugin):
         stop_outer_loop: bool = False
         counter: int = 0
         number_docs_skippe: int = limit_docs * (page_number - 1) if page_number > 1 else 0
-        result: list[str] = []
+        result: list[Any] = []
+        result_json: str | None = None
         # Run quantum loop
         with ThreadPoolExecutor(scruby_self._max_workers) as executor:
             futures: list[Future] = [
@@ -191,7 +192,7 @@ class ReturnJson(ScrubyPlugin):
             ]
             for future in as_completed(futures):
                 docs = await future.result()
-                if docs is not None:
+                if bool(docs):
                     for doc in docs:
                         if number_docs_skippe == 0:
                             if counter >= limit_docs:
@@ -212,6 +213,7 @@ class ReturnJson(ScrubyPlugin):
         if sort_fn is not None:
             result.sort(key=sort_fn, reverse=sort_reverse)
         # Convert to JSON
-        result = [item.model_dump_json() for item in result]
-        # Return a document list
-        return result or None
+        if len(result) > 0:
+            result_json = f"[{','.join([item.model_dump_json() for item in result])}]"
+        # Return a list of documents in json format or None
+        return result_json
