@@ -1,6 +1,6 @@
 ### CHANGELOG
 
-#### v0.6.3 2026-06-08
+#### v0.6.4 2026-06-08
 
 - Fixed major bug for `find_many`.
 - Updated tests.
